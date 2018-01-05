@@ -8,7 +8,7 @@ if (!isset($_GET['id']) && !isset($_SESSION['id_chambre'])) {
     $_SESSION['id_chambre'] = $_GET['id'];
 }
 if (isset($_SESSION['id_chambre'])) {
-    print_r($_SESSION);
+    /* print_r($_SESSION); */
     $cake = new vue_chambresDB($cnx);
     $liste = $cake->getVue_chambresSelect($_SESSION['id_chambre']);
 
@@ -16,23 +16,23 @@ if (isset($_SESSION['id_chambre'])) {
     if (isset($_GET['reserver'])) {
         //permet d'extraire les champs du tableau $_get pour simplifier
         extract($_GET, EXTR_OVERWRITE);
-        
-        print_r($_GET);
+
+        /* print_r($_GET); */
         if (false) {
             $erreur = "Veuillez remplir tous les champs";
         } else {
-            
+
             print 'ok1';
-            
+
             $client = new ClientDB($cnx);
             $res = $client->addClient($_GET);
-            print_r($res);
+            /* print_r($res); */
         }
     }
     ?>
     <div class="row">
         <div class="col-sm-2">
-    <?php print $liste[0]['nom']; ?>
+            <?php print $liste[0]['nom']; ?>
         </div>
         <div class="col-sm-2">
             <?php print $liste[0]['description']; ?>
@@ -47,11 +47,11 @@ if (isset($_SESSION['id_chambre'])) {
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 erreur">
-    <?php
-    if (isset($erreur)) {
-        print $erreur;
-    }
-    ?>
+                    <?php
+                    if (isset($erreur)) {
+                        print $erreur;
+                    }
+                    ?>
                 </div>
             </div>
             <form action ="<?php print $_SERVER['PHP_SELF']; ?>" method="get" id="form_reservation">
@@ -124,6 +124,13 @@ if (isset($_SESSION['id_chambre'])) {
                     </div>
                     <div class="col-sm-4">
                         <input type="text" id="localite" name="localite"/>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-4" id="variabehide">
+                        <input type="text" value="<?php print $liste[0]['nom']; ?>" name="nom_chambre"/>
                     </div>
                 </div><br/>
 

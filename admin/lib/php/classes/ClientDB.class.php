@@ -29,8 +29,8 @@ class ClientDB extends Client{
     
     public function addClient(array $data){
         print_r($data);
-        $query = "insert into utilisateur(nom,prenom,mail,tel,rue,numero,codepostal,localite)"
-                ."values (:nom_client,:prenom_client,:mail_client,:telephone,:rue_client,:numero,:codepostal,:localite)";
+        $query = "insert into utilisateur(nom,prenom,mail,tel,rue,numero,codepostal,localite,nom_chambre)"
+                ."values (:nom_client,:prenom_client,:mail_client,:telephone,:rue_client,:numero,:codepostal,:localite,:nom_chambre)";
     
         try{
             $resultset = $this->_db->prepare($query);
@@ -42,6 +42,7 @@ class ClientDB extends Client{
             $resultset->bindvalue(':numero',$data['numero'], PDO::PARAM_STR);
             $resultset->bindvalue(':codepostal',$data['codepostal'], PDO::PARAM_STR);
             $resultset->bindvalue(':localite',$data['localite'], PDO::PARAM_STR);
+            $resultset->bindvalue(':nom_chambre',$data['nom_chambre'], PDO::PARAM_STR);
             
             $resultset->execute();
             

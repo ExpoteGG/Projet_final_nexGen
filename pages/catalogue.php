@@ -14,6 +14,9 @@
 
     <?php
         for($i=0;$i<$nbrCakes;$i++){
+            if($liste[$i]['status']==0){
+                
+            
     ?>
     <div class="row">
         <div class="col-sm-12 col-md-6">
@@ -29,7 +32,7 @@
         </div>
         
     </div><br/>
-        <?php } ?> 
+        <?php }} ?> 
 </div>
 
 <?php

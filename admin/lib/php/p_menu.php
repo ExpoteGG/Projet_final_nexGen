@@ -15,13 +15,7 @@
                     <a class="nav-link" href="./index.php?page=tab_dynamique.php">Liste de nos chambres</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ajouter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">modifier</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">supprimer</a>
+                    <a class="nav-link" href="./index.php?page=liste_contact.php">Liste contact</a>
                 </li> 
                 <li class="nav-item">
                     <?php if (isset($_SESSION['admin'])) {
